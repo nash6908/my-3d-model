@@ -106,3 +106,9 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
+
+model-viewer {
+  pointer-events: auto;
+  touch-action: none; /* disables pinch/zoom gestures */
+}
+
