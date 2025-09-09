@@ -1,51 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;model-viewer&gt; template</title>
-    <meta charset="utf-8">
-    <meta name="description" content="&lt;model-viewer&gt; template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- model-viewer web component -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Fizzy Moo 3D</title>
     <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-  }
-
-  model-viewer {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background: transparent;
-  }
-  </style>
+      html, body { margin:0; height:100%; background: transparent; }
+      model-viewer {
+        width: 100%;
+        height: 60vh;            /* nice default height */
+        background: transparent;
+        touch-action: none;       /* belt-and-suspenders: blocks pinch/zoom gestures */
+      }
+    </style>
   </head>
   <body>
-    <!-- <model-viewer> HTML element -->
     <model-viewer
-      src="FIZZYMOOCan2.glb"
+      src="./FIZZYMOOCan2.glb"
       alt="Fizzy Moo Can"
       camera-controls
       disable-zoom
-      disable-scroll
+      disable-pan
       interaction-prompt="none"
-      style="background: transparent; width: 100%; height: 600px;"
-      
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-    </model-viewer>  
-    <script src="script.js"></script>
-    <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+      ar
+      ar-modes="webxr scene-viewer quick-look">
+    </model-viewer>
+    <script src="./script.js" defer></script>
   </body>
 </html>
